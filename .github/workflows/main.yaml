@@ -2,10 +2,12 @@ name: Publish Docker image
 
 on:
   push:
+    tags:
+      - "v*"
 
 jobs:
-  push_to_registry:
-    name: Push Docker image to Docker Hub
+  publish:
+    name: Publish
     runs-on: ubuntu-latest
     steps:
       - name: Check out the repo
