@@ -3,7 +3,7 @@ FROM ubuntu:22.04
 ARG RUNNER_USERNAME=runner
 
 RUN apt-get update && apt-get install -y \
-    build-essential curl git libicu-dev lsb-release
+    build-essential curl git libicu-dev lsb-release sudo
 
 COPY --from=docker:24.0-cli /usr/local/bin/docker /usr/local/bin/
 
