@@ -1,4 +1,4 @@
-FROM ubuntu:22.04
+FROM buildpack-deps:jammy
 
 ARG RUNNER_USERNAME=runner
 
