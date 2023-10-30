@@ -11,7 +11,8 @@ RUN mkdir -p /usr/local/lib/docker/cli-plugins && \
 	curl -SL https://github.com/docker/compose/releases/download/v2.20.3/docker-compose-linux-x86_64 -o /usr/local/lib/docker/cli-plugins/docker-compose && \
 	chmod +x /usr/local/lib/docker/cli-plugins/docker-compose
 
-RUN adduser --disabled-password --gecos "" ${RUNNER_USERNAME}
+RUN adduser --disabled-password --gecos "" ${RUNNER_USERNAME} && \
+  usermod -aG sudo ${RUNNER_USERNAME}
 
 USER ${RUNNER_USERNAME}
 
