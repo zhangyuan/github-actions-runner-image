@@ -12,7 +12,8 @@ RUN mkdir -p /usr/local/lib/docker/cli-plugins && \
 	chmod +x /usr/local/lib/docker/cli-plugins/docker-compose
 
 RUN adduser --disabled-password --gecos "" ${RUNNER_USERNAME} && \
-  usermod -aG sudo ${RUNNER_USERNAME}
+  usermod -aG sudo ${RUNNER_USERNAME} && \
+  echo "${RUNNER_USERNAME} ALL=(ALL:ALL) NOPASSWD: ALL" >>  /etc/sudoers.d/${RUNNER_USERNAME}
 
 USER ${RUNNER_USERNAME}
 
