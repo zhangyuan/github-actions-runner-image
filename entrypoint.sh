@@ -9,10 +9,10 @@ if [ "$1" = "run" ]; then
     set -euo pipefail
 
     cd ./actions-runner
-    ./config.sh --unattended --url "$REPO_URL" --token "$REGISTRATION_TOKEN" --name "${RUNNER_NAME}" --labels "${RUNNER_LABLES:-dind}" --replace && ./run.sh
+    ./config.sh --unattended --url "$REPO_URL" --token "$REGISTRATION_TOKEN" --name "${RUNNER_NAME}" --labels "${RUNNER_LABELS:-dind}" --replace && ./run.sh
 
     trap cleanup EXIT
 else
     set -euo pipefail
-    eval $@
+    eval "$@"
 fi
